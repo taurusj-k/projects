@@ -1,0 +1,13 @@
+.Gallery {
+  text-align: center;
+  clear: both;
+  &-title {
+    font-size: $fontxl;
+  }
+  &-subtitle {
+    color: $text-color-grey--secondary;
+  }
+  &-imgWrap {
+    display: inline-block;
+  }
+}

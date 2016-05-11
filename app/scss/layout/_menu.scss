@@ -1,0 +1,51 @@
+.Header {
+  position: fixed;
+  width: 100%;
+  background-color: $bg-color-grey--primary;
+  z-index: 1;
+  &-title {
+    font-size: $fontxxl;
+    text-align: left;
+    flex: 4;
+  }
+  &-itemsWrap {
+    max-width: 62.5em;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    &.active {
+
+    }
+  }
+  &-menuItem {
+    padding: 1em;
+    color: $text-color-grey--secondary;
+    transition: background-color 0.2s ease-in-out;
+    flex: 1;
+    text-align: right;
+    &:hover {
+      color: $text-color--black;
+      background-color: rgba($bg-color--white, .5);
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .Header {
+     transition: all .25s ease;
+    &-itemsWrap {
+      flex-direction: column;
+    }
+    &-title,
+    &-menuItem {
+      width: 100%;
+      padding: .75em;
+      border-bottom: 1px green dotted;
+      text-align: center;
+    }
+    &-title {
+      flex: 1;
+      order: 5;
+      display:none;
+    }
+  }
+}

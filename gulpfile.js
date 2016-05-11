@@ -11,16 +11,6 @@ var sassOptions = {
 var autoprefixerOptions = {
   browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
 };
-// var plumber = require('gulp-plumber');
-// function customPlumber () {
-//   return plumber({
-//       errorHandler: function(err) {
-//       // Logs error in console
-//       console.log(err.stack);
-//       // Ends the current pipe, so Gulp watch doesn't break this.emit('end');
-//     }
-//   });
-// }
 
 gulp.task('sass', function() {
   return gulp.src(input)
@@ -32,6 +22,7 @@ gulp.task('sass', function() {
       stream: true
     }))
 });
+
 var browserSync = require('browser-sync').create();
 gulp.task('browserSync', function() {
   browserSync.init({
@@ -48,8 +39,10 @@ gulp.task('watch', ['browserSync', 'sass'], function (){
 var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
-
 var cssnano = require('gulp-cssnano');
+
+var jshint = require('gulp-jshint')
+    rename = require('gulp-rename');
 gulp.task('useref', function(){
   return gulp.src('app/*.html')
     .pipe(useref())
@@ -58,6 +51,7 @@ gulp.task('useref', function(){
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'))
 });
+
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 
@@ -74,7 +68,6 @@ gulp.task('fonts', function() {
   return gulp.src('app/fonts/**/*')
   .pipe(gulp.dest('dist/fonts'))
 });
-
 //cleaning up
 var del = require('del');
 gulp.task('clean:dist', function() {
@@ -95,7 +88,7 @@ gulp.task('default', function (callback) {
   )
 });
 
-var deploy      = require('gulp-gh-pages');
+var deploy = require('gulp-gh-pages');
 gulp.task('deploy', ['build'], function () {
   return gulp.src("./dist/**/*")
     .pipe(deploy())

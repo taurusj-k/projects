@@ -1,0 +1,15 @@
+.Hero {
+  display: inline-block;
+  width: 100%;
+  background: $bg-color-grey--teritary;
+  height: 31.250em;
+  position: relative;
+  &-title {
+    font-size: $accentfont;
+    font-weight: bold;
+    color: $text-color--white;
+    position: absolute;
+    top: 15%;
+    left: 3%;
+  }
+}

@@ -1,0 +1,47 @@
+//////////////////////////////////
+// FONT FAMILIES
+//////////////////////////////////
+$font-family--base:           'robotothin', arial, sans-serif;
+
+//////////////////////////////////
+// FONT SIZES
+//////////////////////////////////
+//35px
+//48px
+//27px
+//24px
+//21px
+//17px
+//15px
+$accentfont:                  300%;   // 48px
+$fontxxl:                     218.8%; // 35px
+$fontxl:                      150%;   // 24px
+$fontmed:                     131.3%; // 21px
+$fontbody:                    100%;   // 16px
+$fontxs:                      93.8%;  // 15px
+
+
+//////////////////////////////////
+// COLORS
+//////////////////////////////////
+
+$text-color--base:             #404040;
+$text-color-grey--primary:     #8b8b8b;
+$text-color-grey--secondary:   #aeaeae;
+$text-color--white:            #fff;
+$text-color--black:            #000;
+
+$bg-color--black:              #000;
+$bg-color--white:              #fff;
+$bg-color-grey--primary:       #eeeeef;
+$bg-color-grey--secondary:     #414141;
+$bg-color-grey--teritary:     #3f3d3d;
+
+//////////////////////////////////
+// BREAKPOINTS
+//////////////////////////////////
+$breakpoints: (
+  'small':  767px,
+  'medium': 992px,
+  'large':  1200px
+) !default;

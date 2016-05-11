@@ -1,16 +1,47 @@
-.test {
-  font-family: 'robotothin';
-}
-@font-face {
-    font-family: 'robotothin';
-    src: url('../fonts/roboto-thin-webfont.woff2') format('woff2'),
-         url('../fonts/roboto-thin-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+@import 'helper/variables';
+@import 'base/reset';
+@import 'base/typography';
+@import 'helper/mixins';
+@import 'layout/menu';
+@import 'layout/hero';
+@import 'layout/image';
 
+//mobile first
+body {
+  //color: red;
 }
-body { background-color: blue;
-  font-family: 'robotothin';
-  opacity: .5;
-  display: flex;
+//menu component
+.Header {
+  text-align: center;
+}
+//hero component
+.Hero {
+  @include cover-background(
+    $img-uri: '../../images/banner2.jpg'
+  );
+}
+
+
+@include respond-to('small') {
+  body {
+    //color: blue;
+  }
+}
+@include respond-to('medium') {
+  body {
+    //color: yellow;
+  }
+  .Hero {
+    @include cover-background(
+      $img-uri: '../../images/banner.jpg'
+    );
+  }
+}
+@include respond-to('large') {
+  body {
+    //color: green;
+  }
+  @include cover-background(
+    $img-uri: '../../images/banner.jpg'
+  );
 }

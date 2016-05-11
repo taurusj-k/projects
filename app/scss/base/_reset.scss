@@ -26,3 +26,17 @@ table             {border-collapse: collapse;border-spacing: 0;}
 * {
   box-sizing: border-box;
 }
+body {
+  color: $text-color--base;
+  font-size: $fontbody;
+  font-family: $font-family--base;
+  font-weight: normal;
+  line-height: 1.6;
+  webkit-text-size-adjust: 100%;
+}
+img {
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+}

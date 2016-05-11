@@ -1,0 +1,22 @@
+{
+  "name": "hubspot",
+  "description": "try out gulp",
+  "main": "gulpfile.js",
+  "authors": [
+    "ikonivetska"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/taurusj-k/projects",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3"
+  }
+}
