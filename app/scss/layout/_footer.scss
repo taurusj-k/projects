@@ -1,0 +1,19 @@
+.Footer {
+  background-color: $bg-color-grey--secondary;
+  padding: 5% 3%;
+  &-linkBlock {
+    display: inline-block;
+    padding-left: 10%;
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+  &-link {
+    &:first-child {
+      padding-bottom: .5em;
+    }
+    a {
+      color: $text-color-grey--secondary;
+    }
+  }
+}

@@ -1,13 +1,78 @@
 .Gallery {
   text-align: center;
-  clear: both;
+  padding: 3%;
+  &-subTitle,
+  &-title {
+    padding-bottom: 2%;
+  }
   &-title {
     font-size: $fontxl;
+    padding-bottom: 2%;
   }
-  &-subtitle {
+  &-subTitle {
     color: $text-color-grey--secondary;
   }
   &-imgWrap {
+    position: relative;
+    width: 100%;
+    margin-bottom: 3%;
     display: inline-block;
   }
+  &-imgHover {
+    background-color: rgba($bg-color--black, .6);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10%;
+    position: absolute;
+    display: block;
+    transition: all .25s ease;
+    @include hover-focus-active {
+      opacity: 0;
+    }
+  }
+  &-imgTitle {
+    color: $text-color--white;
+    @include centerer();
+  }
+  &-img {
+    display: block;
+    width: 100%;
+
+  }
 }
+@include respond-to('small') {
+  .Gallery {
+    margin: 4% auto 2%;
+    padding: 0;
+    &-imgWrap {
+      width: 25%;
+      margin-bottom: 0;
+    }
+    &-subTitle {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
+@include respond-to('medium') {
+  .Gallery {
+    &-imgWrap {
+      width: auto;
+    }
+    &-subTitle {
+      width: 60%;
+    }
+  }
+}
+// @include respond-to('large') {
+//   .Gallery {
+//     &-imgWrap {
+//       float: left;
+//       width: auto;
+//     }
+//   }
+// }

@@ -5,6 +5,8 @@
 @import 'layout/menu';
 @import 'layout/hero';
 @import 'layout/image';
+@import 'layout/articles';
+@import 'layout/footer';
 
 //mobile first
 body {
@@ -24,12 +26,12 @@ body {
 
 @include respond-to('small') {
   body {
-    //color: blue;
+    color: blue;
   }
 }
 @include respond-to('medium') {
   body {
-    //color: yellow;
+    color: yellow;
   }
   .Hero {
     @include cover-background(
@@ -39,7 +41,7 @@ body {
 }
 @include respond-to('large') {
   body {
-    //color: green;
+    color: green;
   }
   @include cover-background(
     $img-uri: '../../images/banner.jpg'

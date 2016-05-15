@@ -65,10 +65,12 @@ body {
 
 img {
   max-width: 100%;
+  display: block;
 }
 
 a {
   text-decoration: none;
+  color: #404040;
 }
 
 @font-face {
@@ -78,80 +80,121 @@ a {
   font-style: normal;
 }
 
-.Header {
-  position: fixed;
-  width: 100%;
-  background-color: #eeeeef;
-  z-index: 1;
+.Content-tile:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.Header-title {
-  font-size: 218.8%;
-  text-align: left;
-  -webkit-box-flex: 4;
-  -webkit-flex: 4;
-      -ms-flex: 4;
-          flex: 4;
+.Header {
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
 }
 
 .Header-itemsWrap {
-  max-width: 62.5em;
-  margin: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  max-height: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+  -webkit-transition: all;
+  transition: all;
 }
 
-.Header-menuItem {
-  padding: 1em;
-  color: #aeaeae;
-  -webkit-transition: background-color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out;
+.Header-title, .Header-menuItem {
+  width: 100%;
+  padding: .75em;
+  border-bottom: 1px green dotted;
+  text-align: center;
+}
+
+.Header-title {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  text-align: right;
+  -webkit-box-ordinal-group: 6;
+  -webkit-order: 5;
+      -ms-flex-order: 5;
+          order: 5;
+  display: none;
 }
 
-.Header-menuItem:hover {
-  color: #000;
-  background-color: rgba(255, 255, 255, 0.5);
+.Header .mobile {
+  display: block;
+  padding: 22px 14px;
+  background: #eeeeef;
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+  top: 15px;
+  right: 15px;
+  line-height: 0;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
 }
 
-@media screen and (max-width: 700px) {
+.Header .active {
+  max-height: 9000px !important;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (min-width: 767px) {
   .Header {
-    -webkit-transition: all .25s ease;
-    transition: all .25s ease;
-  }
-  .Header-itemsWrap {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .Header-title, .Header-menuItem {
+    position: fixed;
     width: 100%;
-    padding: .75em;
-    border-bottom: 1px green dotted;
-    text-align: center;
+    background-color: red;
+    z-index: 1;
   }
   .Header-title {
+    font-size: 218.8%;
+    text-align: left;
+    -webkit-box-flex: 4;
+    -webkit-flex: 4;
+        -ms-flex: 4;
+            flex: 4;
+  }
+  .Header-itemsWrap {
+    max-width: 62.5em;
+    margin: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    max-height: 0;
+    -webkit-transition: all;
+    transition: all;
+  }
+  .Header-menuItem {
+    padding: 1em;
+    color: #aeaeae;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    -webkit-box-ordinal-group: 6;
-    -webkit-order: 5;
-        -ms-flex-order: 5;
-            order: 5;
+    text-align: center;
+    cursor: pointer;
+    width: auto;
+  }
+  .Header-menuItem:hover, .Header-menuItem:focus, .Header-menuItem:active {
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  .Header .mobile {
     display: none;
+  }
+  .Header .active {
+    max-height: 100% !important;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 }
 
@@ -161,6 +204,7 @@ a {
   background: #3f3d3d;
   height: 31.250em;
   position: relative;
+  display: block;
 }
 
 .Hero-title {
@@ -174,19 +218,128 @@ a {
 
 .Gallery {
   text-align: center;
-  clear: both;
+  padding: 3%;
+}
+
+.Gallery-subTitle, .Gallery-title {
+  padding-bottom: 2%;
 }
 
 .Gallery-title {
   font-size: 150%;
+  padding-bottom: 2%;
 }
 
-.Gallery-subtitle {
+.Gallery-subTitle {
   color: #aeaeae;
 }
 
 .Gallery-imgWrap {
+  position: relative;
+  width: 100%;
+  margin-bottom: 3%;
   display: inline-block;
+}
+
+.Gallery-imgHover {
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  position: absolute;
+  display: block;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+}
+
+.Gallery-imgHover:hover, .Gallery-imgHover:focus, .Gallery-imgHover:active {
+  opacity: 0;
+}
+
+.Gallery-imgTitle {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.Gallery-img {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 767px) {
+  .Gallery {
+    margin: 4% auto 2%;
+    padding: 0;
+  }
+  .Gallery-imgWrap {
+    width: 25%;
+    margin-bottom: 0;
+  }
+  .Gallery-subTitle {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .Gallery-imgWrap {
+    width: auto;
+  }
+  .Gallery-subTitle {
+    width: 60%;
+  }
+}
+
+.Content {
+  border-top: 1px solid;
+  padding: 3% 0;
+}
+
+.Content-tile {
+  margin: 0 3% 5%;
+}
+
+.Content-img {
+  float: left;
+  margin-right: 3%;
+}
+
+.Content-title {
+  font-size: 150%;
+}
+
+.Content-post {
+  font-size: 93.8%;
+}
+
+.Footer {
+  background-color: #414141;
+  padding: 5% 3%;
+}
+
+.Footer-linkBlock {
+  display: inline-block;
+  padding-left: 10%;
+}
+
+.Footer-linkBlock:first-child {
+  padding-left: 0;
+}
+
+.Footer-link:first-child {
+  padding-bottom: .5em;
+}
+
+.Footer-link a {
+  color: #aeaeae;
 }
 
 .Header {
@@ -198,7 +351,16 @@ a {
   background-size: cover;
 }
 
+@media (min-width: 767px) {
+  body {
+    color: blue;
+  }
+}
+
 @media (min-width: 992px) {
+  body {
+    color: yellow;
+  }
   .Hero {
     background: url("../../images/banner.jpg") no-repeat center center scroll;
     background-size: cover;
@@ -206,6 +368,9 @@ a {
 }
 
 @media (min-width: 1200px) {
+  body {
+    color: green;
+  }
   background: url("../../images/banner.jpg") no-repeat center center scroll;
   background-size: cover;
 }

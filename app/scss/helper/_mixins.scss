@@ -45,3 +45,16 @@
     transform: translate(0, -50%);
   }
 }
+//using placeholder for efficientcy and maintainability
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+@mixin hover-focus-active() {
+  &:hover,
+  &:focus,
+  &:active { @content }
+}

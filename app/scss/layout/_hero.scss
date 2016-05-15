@@ -4,6 +4,7 @@
   background: $bg-color-grey--teritary;
   height: 31.250em;
   position: relative;
+  display: block;
   &-title {
     font-size: $accentfont;
     font-weight: bold;
