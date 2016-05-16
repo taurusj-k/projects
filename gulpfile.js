@@ -69,14 +69,14 @@ gulp.task('fonts', function() {
   .pipe(gulp.dest('dist/fonts'))
 });
 //cleaning up
-var del = require('del');
-gulp.task('clean:dist', function() {
-  return del.sync('dist');
-});
+// var del = require('del');
+// gulp.task('clean:dist', function() {
+//   return del.sync('dist');
+// });
 
 var runSequence = require('run-sequence');
 gulp.task('build', function (callback) {
-  runSequence('clean:dist',
+  runSequence(
     ['sass', 'useref', 'images', 'fonts'],
     callback
   )
