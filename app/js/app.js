@@ -1,5 +1,8 @@
 $(document).ready(function() {
-  $('.Header').click(function () {
-	  $('ul').toggleClass('active');
+  var header = $('.Header');
+
+  $(header).click(function (e) {
+    e.preventDefault();
+	  $('nav').toggleClass('is-active');
    });
 });

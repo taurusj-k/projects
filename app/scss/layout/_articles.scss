@@ -6,13 +6,24 @@
     margin: 0 3% 5%;
   }
   &-img {
-    float: left;
-    margin-right: 3%;
+    width: 100%;
   }
   &-title {
     font-size: $fontxl;
   }
   &-post {
     font-size: $fontxs;
+  }
+}
+@include respond-to('small') {
+  .Content {
+    &-img {
+      float: left;
+      margin-right: 3%;
+      width: auto;
+    }
+    &-tile {
+      margin: 0 3% 5%;
+    }
   }
 }

@@ -5,6 +5,9 @@
   height: 31.250em;
   position: relative;
   display: block;
+  @include cover-background(
+    $img-uri: '../images/banner2.jpg'
+  );
   &-title {
     font-size: $accentfont;
     font-weight: bold;
@@ -12,5 +15,13 @@
     position: absolute;
     top: 15%;
     left: 3%;
+  }
+}
+
+@include respond-to('small') {
+  .Hero {
+    @include cover-background(
+      $img-uri: '../images/banner.jpg'
+    );
   }
 }

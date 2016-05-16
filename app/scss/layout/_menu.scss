@@ -1,84 +1,92 @@
-
 .Header {
-   transition: all .25s ease;
-  &-itemsWrap {
-    max-height: 0;
-    flex-direction: column;
-    overflow: hidden;
-    transition: all;
+  padding: 1.25em 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  &-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 63.625em;
+    margin: 0 auto;
+    padding: 0 1.25em;
   }
-  &-title,
+  &-title {
+    display: none;
+  }
+  &-nav {
+    display: none;
+    &.is-active {
+      display: block;
+    }
+  }
+  &-itemsWrap {
+    background-color: rgba(255,255,255,0.8);
+  }
   &-menuItem {
     width: 100%;
     padding: .75em;
-    border-bottom: 1px green dotted;
+    border-bottom: 1px solid $border-color-grey--primary;
     text-align: center;
+    transition: background-color 0.2s ease-in-out;
+    @include hover-focus-active {
+      color: $text-color--black;
+      background-color: rgba($bg-color--white, 1);
+    }
   }
-  &-title {
-    flex: 1;
-    order: 5;
-    display:none;
-  }
-  .mobile {
+  &-mobileMenu {
     display: block;
     padding: 22px 14px;
-    background: $bg-color-grey--primary;
+    background-color: $bg-color-grey--primary;
     position:absolute;
     z-index: 1;
-    color: $text-color--white;
-    top:15px;
-    right:15px;
+    color: $text-color--black;
+    top:10px;
+    right:10px;
     line-height:0;
-    box-shadow:0 0 2px rgba(0,0,0,.4);
-  }
-  .active {
-    max-height:9000px !important;
-    transition: all 0.2s ease-in-out;
+    box-shadow:0 0 2px rgba($bg-color--black,.4);
+    opacity: 1;
   }
 }
-// @media screen and (max-width: 700px) {
-//
-// }
 
 @include respond-to('small') {
   .Header {
-    position: fixed;
-    width: 100%;
-    background-color: red;
-    // background-color: $bg-color-grey--primary;
+    background-color: $bg-color-grey--primary;
+    padding: .25em 0;
     z-index: 1;
-    &-title {
-      font-size: $fontxxl;
-      text-align: left;
-      flex: 4;
+    &-wrap {
+      clear: both;
     }
     &-itemsWrap {
-      max-width: 62.5em;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      max-height: 0;
-      transition: all;
+      overflow-y: visible;
+    }
+    &-title {
+      font-size: $fontxxl;
+      display: block;
+      float: left;
+    }
+    &-nav {
+      display: block;
+      float: right;
     }
     &-menuItem {
       padding: 1em;
       color: $text-color-grey--secondary;
       transition: background-color 0.2s ease-in-out;
-      flex: 1;
-      text-align: center;
       cursor: pointer;
+      border-bottom: 0;
+      float: left;
+      position: relative;
       width: auto;
       @include hover-focus-active {
         color: $text-color--black;
         background-color: rgba($bg-color--white, .5);
       }
     }
-    .mobile {
+    &-mobileMenu {
+      opacity: 0;
       display: none;
-    }
-    .active {
-      max-height:100% !important;
-      transition: all 0.2s ease-in-out;
     }
   }
 }

@@ -7,7 +7,6 @@
   }
   &-title {
     font-size: $fontxl;
-    padding-bottom: 2%;
   }
   &-subTitle {
     color: $text-color-grey--secondary;
@@ -41,7 +40,6 @@
   &-img {
     display: block;
     width: 100%;
-
   }
 }
 @include respond-to('small') {
@@ -49,7 +47,7 @@
     margin: 4% auto 2%;
     padding: 0;
     &-imgWrap {
-      width: 25%;
+      width: auto;
       margin-bottom: 0;
     }
     &-subTitle {
@@ -60,19 +58,8 @@
 }
 @include respond-to('medium') {
   .Gallery {
-    &-imgWrap {
-      width: auto;
-    }
     &-subTitle {
       width: 60%;
     }
   }
 }
-// @include respond-to('large') {
-//   .Gallery {
-//     &-imgWrap {
-//       float: left;
-//       width: auto;
-//     }
-//   }
-// }

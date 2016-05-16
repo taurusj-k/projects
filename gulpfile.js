@@ -77,7 +77,7 @@ gulp.task('fonts', function() {
 var runSequence = require('run-sequence');
 gulp.task('build', function (callback) {
   runSequence(
-    ['sass', 'useref', 'images', 'fonts'],
+    'sass', 'useref', 'images', 'fonts',
     callback
   )
 });

@@ -35,7 +35,9 @@ $bg-color--black:              #000;
 $bg-color--white:              #fff;
 $bg-color-grey--primary:       #eeeeef;
 $bg-color-grey--secondary:     #414141;
-$bg-color-grey--teritary:     #3f3d3d;
+$bg-color-grey--teritary:      #3f3d3d;
+
+$border-color-grey--primary:   #8b8b8b;
 
 //////////////////////////////////
 // BREAKPOINTS
@@ -43,5 +45,5 @@ $bg-color-grey--teritary:     #3f3d3d;
 $breakpoints: (
   'small':  767px,
   'medium': 992px,
-  'large':  1200px
+  'large':  1024px
 ) !default;
